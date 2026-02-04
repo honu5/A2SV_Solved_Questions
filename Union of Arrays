@@ -1,0 +1,10 @@
+class Solution:    
+    def findUnion(self, a, b):
+        '''lst1=list(set(a))
+        for i in b:
+            if i not in lst1:
+                lst1.append(i)
+        return lst1'''
+        
+        res = set(a).union(set(b))
+        return list(res)
