@@ -1,0 +1,26 @@
+class Solution(object):
+    def countCharacters(self, words, chars):
+        """
+        :type words: List[str]
+        :type chars: str
+        :rtype: int
+        """
+        
+        val=0
+        for i in words:
+            found=True
+            
+            for j in i:
+                if i.count(j)>chars.count(j):
+                    found=False
+                    break
+                    
+            if found:
+                val+=len(i)
+                
+                
+            
+        return val
+            
+    
+        
