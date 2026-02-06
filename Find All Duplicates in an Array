@@ -1,0 +1,13 @@
+class Solution(object):
+    def findDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        ans=[]
+        count=Counter(nums)
+        for i,frq in count.items():
+            if frq==2:
+                ans.append(i)
+        return ans
+        
