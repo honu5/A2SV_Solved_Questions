@@ -1,0 +1,68 @@
+class Solution(object):
+    def intToRoman(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        ans=[]
+        n=num//1000
+        m=num%1000
+        if num<10:
+           
+            if num==9:
+                ans.append("IX")
+            elif num>=5:
+                a=num-5
+                ans.append("V")
+                ans.extend(["I"]*a)
+            elif num==4:
+                ans.append("IV")
+            
+            else: ans.extend(["I"]*num)
+
+            return "".join(ans)
+        
+        ans.extend(["M"]*n)
+        
+        n=m//100
+        m=num%100
+        if n==9:
+            ans.append("CM")
+        elif n>=5:
+            a=n-5
+            ans.append("D")
+            ans.extend(["C"]*a)
+        elif n==4:
+            ans.append("CD")
+       
+        else: 
+            ans.extend(["C"]*n)
+        n=m//10
+        m=m%10
+        if n==9:
+            ans.append("XC")
+        elif n>=5:
+            a=n-5
+            
+            ans.append("L")
+            ans.extend(["X"]*a)
+        elif n==4:
+            ans.append("XL")
+        
+        else: ans.extend(["X"]*n)
+
+        if m==9:
+            ans.append("IX")
+        elif m>=5:
+            a=m-5
+            ans.append("V")
+            ans.extend(["I"]*a)
+        elif m==4:
+            ans.append("IV")
+        
+        else: ans.extend(["I"]*m)
+
+        return "".join(ans)
+        
+
+        
