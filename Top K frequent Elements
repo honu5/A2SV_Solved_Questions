@@ -1,0 +1,16 @@
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        ans=[]
+        count=Counter(nums)
+        common =count.most_common()
+        l=0
+        while l<k:
+            ans.append(common[l][0])
+            l+=1
+        return ans
+        
