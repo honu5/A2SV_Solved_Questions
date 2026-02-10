@@ -1,0 +1,26 @@
+class Solution(object):
+    def sumEvenAfterQueries(self, nums, queries):
+        """
+        :type nums: List[int]
+        :type queries: List[List[int]]
+        :rtype: List[int]
+        """
+        ans=[]
+        val = sum(i for i in nums if i%2==0)
+        
+        for x,y in queries:
+            if nums[y]%2==0:
+                val-=nums[y]
+            nums[y]+=x
+            if nums[y]%2==0:
+                val+=nums[y]
+
+
+            
+            ans.append(val)
+            
+        return ans
+            
+
+
+        
