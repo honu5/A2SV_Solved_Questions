@@ -1,0 +1,19 @@
+class Solution(object):
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        ans=[]
+        m=0
+        while m!=1:
+            
+            m=sum(int(i)**2 for i in str(n))
+            if m in ans:
+                return False
+            ans.append(m)
+            n=m
+        return True
+
+            
+        
