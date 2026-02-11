@@ -1,0 +1,18 @@
+class Solution(object):
+    def minSteps(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: int
+        """
+        ans=0
+        
+        count1=Counter(s)
+        count2=Counter(t)
+        for i in count1:
+            if count1[i]>count2[i]:
+                ans+=count1[i]-count2[i]
+        return ans
+
+
+        
