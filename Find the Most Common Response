@@ -1,0 +1,23 @@
+class Solution(object):
+    def findCommonResponse(self, responses):
+        """
+        :type responses: List[List[str]]
+        :rtype: str
+        """
+        arr=[list(set(i)) for i in responses]
+        my_dict=defaultdict(int)
+        for i in arr:
+            for j in i:
+                my_dict[j]+=1
+        val=0
+        lst=list(my_dict.keys())
+        lst.sort()
+        val=0
+        
+        for i in lst:
+            if my_dict[i]>val:
+                val=my_dict[i]
+                ans=i
+        return ans
+        
+        
