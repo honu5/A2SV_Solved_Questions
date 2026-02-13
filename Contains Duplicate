@@ -1,0 +1,12 @@
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        quxer=Counter(nums)
+        bzu=quxer.most_common()
+        if bzu[0][1]>1:
+            return True
+        return False
+        
