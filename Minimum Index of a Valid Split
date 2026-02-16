@@ -1,0 +1,22 @@
+class Solution(object):
+    def minimumIndex(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        count=Counter(nums)
+        most_elmnts=count.most_common()
+        most=most_elmnts[0][0]
+        n=len(nums)
+        val=0
+        frq=most_elmnts[0][1]
+
+        for i in range(n):
+            if nums[i]==most:
+                val+=1
+
+            if val>(i+1)/2 and frq-val>(n-i-1)/2:
+                return i
+        return -1
+        
+        
