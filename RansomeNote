@@ -1,0 +1,14 @@
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        count=Counter(ransomNote)
+        count1=Counter(magazine)
+        for i,frq in count.items():
+            if frq>count1[i]:
+                return False
+        return True
+        
