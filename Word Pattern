@@ -1,0 +1,22 @@
+class Solution(object):
+    def wordPattern(self, pattern, s):
+        """
+        :type pattern: str
+        :type s: str
+        :rtype: bool
+        """
+        pat_dict=defaultdict(str)
+        lst=s.split(" ")
+        if len(pattern)!=len(lst):
+            return False
+        if len(set(pattern))!=len(set(lst)):
+            return False
+        for i in range(len(pattern)):
+            if pattern[i] in pat_dict and pat_dict[pattern[i]]!=lst[i]:
+                return False
+            pat_dict[pattern[i]]=lst[i]
+        return True
+
+
+
+        
