@@ -1,0 +1,18 @@
+class Solution(object):
+    def flipAndInvertImage(self, image):
+        """
+        :type image: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        mat=image
+        for i in range(len(mat)):
+            for j in range(len(mat[0])):
+                if mat[i][j]==0:
+                    mat[i][j]=1
+                else:
+                    mat[i][j]=0
+            mat[i]=mat[i][::-1]
+        return mat
+        
+
+        
