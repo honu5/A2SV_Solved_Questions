@@ -1,0 +1,26 @@
+class Solution(object):
+    def findDiagonalOrder(self, mat):
+        """
+        :type mat: List[List[int]]
+        :rtype: List[int]
+        """
+        cols,rows=len(mat[0]),len(mat)
+        ans=[]
+        
+        for i in range(cols+rows-1):
+            temp=[]
+            row=0 if i<cols else i-cols+1
+            col=i if i<cols else cols-1
+
+            curr_col=col
+            curr_row=row
+            while curr_col>=0 and curr_row<rows:
+                temp.append(mat[curr_row][curr_col])
+                curr_row+=1
+                curr_col-=1
+            if i%2==0:
+                temp=temp[::-1]
+            ans.extend(temp)
+        return ans
+
+        
