@@ -1,0 +1,20 @@
+class Solution(object):
+    def customSortString(self, order, s):
+        """
+        :type order: str
+        :type s: str
+        :rtype: str
+        """
+        strr=""
+        count=Counter(s)
+        s=list(s)
+        for i in order:
+            if i in s:
+                for j in range(count[i]):
+                    strr+=i
+            
+        for i in s:
+            if i not in order:
+                strr+=i                
+        return strr
+        
