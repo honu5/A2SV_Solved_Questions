@@ -1,0 +1,23 @@
+class Solution(object):
+    def partitionLabels(self, s):
+        """
+        :type s: str
+        :rtype: List[int]
+        """
+        my_dict={c:idx for idx,c in enumerate(s)}
+        last_idx=0
+        start=0
+        ans=[]
+
+        for idx,i in enumerate(s):
+            last_idx=max(last_idx,my_dict[i])
+            if idx==last_idx:
+                ans.append(idx-start+1)
+                start=last_idx+1
+        return ans
+
+
+            
+
+
+        
