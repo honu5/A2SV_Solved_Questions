@@ -1,0 +1,26 @@
+class Solution(object):
+    def characterReplacement(self, s, k):
+        """
+        :type s: str
+        :type k: int
+        :rtype: int
+        """
+        val=0
+        a=0
+        i=0
+        count=Counter()
+        most=0
+        for i in range(len(s)):
+            count[s[i]]+=1
+            most=max(most,count[s[i]])
+            n=i-a+1
+           
+            if n-most>k:
+                count[s[a]]-=1
+                a+=1
+            else:
+                val=max(val,n)
+                i+=1
+        return val
+
+        
