@@ -1,0 +1,15 @@
+class Solution(object):
+    def removeStars(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        lst=list(s)
+        ans=[]
+        for i in lst:
+            if i=="*":
+                ans.pop()
+            else:
+                ans.append(i)
+        return "".join(ans)
+        
