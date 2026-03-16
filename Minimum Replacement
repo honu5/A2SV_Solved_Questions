@@ -1,0 +1,15 @@
+class Solution:
+    def minimumReplacement(self, nums: List[int]) -> int:
+        val=0
+        if nums==sorted(nums):
+            return 0
+        for i in range(len(nums)-2,-1,-1):
+            if nums[i]>nums[i+1]:
+                temp=(nums[i]+nums[i+1]-1)//nums[i+1]
+                val+=temp-1
+                nums[i]=nums[i]//temp
+        return val
+
+
+
+        
