@@ -1,0 +1,25 @@
+class Solution:
+    def lemonadeChange(self, bills: List[int]) -> bool:
+        stack=[]
+        for i in bills:
+            if i==5:
+                stack.append(i)
+            elif i==10:
+                if 5 not in stack:
+                    print("test1",i)
+                    return False
+                stack.remove(5)
+                stack.append(10)
+            elif i==20:
+                if 5 not in stack:
+                    return False
+                if (not 10  in stack) and  len(stack)<3:
+                    return False
+                if 10 in stack:
+                    stack.remove(10)
+                    stack.remove(5)
+                else:
+                    stack.remove(5)
+                    stack.remove(5)
+                    stack.remove(5)
+        return True        
