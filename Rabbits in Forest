@@ -1,0 +1,15 @@
+class Solution:
+    def numRabbits(self, answers: List[int]) -> int:
+        cnt={}
+        for n in answers:
+            if n!=0:
+                cnt[n]=cnt.get(n,0)+1
+        result=len(answers)
+        for key,val in cnt.items():
+            if val>key+1:
+                if val%(key+1)>0:
+                    result+=(key+1-val%(key+1))
+            else:
+                result+=(key+1-val)
+
+        return result
