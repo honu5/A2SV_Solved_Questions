@@ -1,0 +1,17 @@
+class Solution:
+    def minMoves(self, n: int, Db: int) -> int:
+        if n%2==1:
+            val=1
+            n-=1
+        else: val=0
+        while n and Db:
+            Db-=1
+            n//=2
+            val+=1
+            if n%2==1:
+                n-=1
+                val+=1
+        return n-1+val
+
+        
+        
