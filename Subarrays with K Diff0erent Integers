@@ -1,0 +1,21 @@
+class Solution:
+    def subCount(self,nums:List[int],k:int)->int:
+        ans=0
+        _dict=dict()
+        i=0
+        for j in range(len(nums)):
+            if nums[j] in _dict:
+                _dict[nums[j]]+=1
+            else: 
+                _dict[nums[j]]=1
+            while len(_dict)>k:
+                _dict[nums[i]]-=1
+                if _dict[nums[i]]==0:
+                    del _dict[nums[i]]
+                i+=1
+            ans+=j-i+1
+        return ans 
+    def subarraysWithKDistinct(self, nums: List[int], k: int) -> int:
+        
+        return self.subCount(nums,k)-self.subCount(nums,k-1)
+        
