@@ -1,0 +1,17 @@
+class Solution:
+    def decodeString(self, s: str) -> str:
+        arr=[]
+        for i in range(len(s)):
+            if s[i]!="]":
+                arr.append(s[i])
+            else:
+                sub=""
+                while arr[-1]!="[":
+                    sub=arr.pop()+sub
+                arr.pop()
+                k=""
+                while arr and arr[-1].isdigit():
+                    k=arr.pop()+k
+                arr.append(int(k)*sub)
+        return "".join(arr)
+        
