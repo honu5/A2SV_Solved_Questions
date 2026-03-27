@@ -1,0 +1,11 @@
+class Solution:
+    def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
+        res=0
+        mp={0:1}
+        prefix=0
+        for i in nums:
+            prefix+=i
+            res+=mp.get(prefix-goal,0)
+            mp[prefix]=mp.get(prefix,0)+1
+        return res
+        
