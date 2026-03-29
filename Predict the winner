@@ -1,0 +1,10 @@
+class Solution:
+    def predictTheWinner(self, nums: List[int]) -> bool:
+        @cache
+        def test(left:int,right:int)->int:
+            if left>right:
+                return 0
+            lefT=nums[left]-test(left+1,right)
+            righT=nums[right]-test(left,right-1)
+            return max(lefT,righT)
+        return test(0,len(nums)-1)>=0
