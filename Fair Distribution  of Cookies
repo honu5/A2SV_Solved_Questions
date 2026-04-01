@@ -1,0 +1,21 @@
+class Solution:
+    def distributeCookies(self, cookies: List[int], k: int) -> int:
+        self.val=float("inf")
+        arr=[0]*k
+        cookies.sort(reverse=True)
+        def dfs(i:int)->None:
+            if i>=len(cookies):
+                curr=max(arr)
+                self.val=min(self.val,curr)
+                return 
+            for j in range(k):
+                if arr[j]+cookies[i]>=self.val:
+                    continue
+                if j>0 and arr[j]==arr[j-1]:
+                    continue
+                arr[j]+=cookies[i]
+                dfs(i+1)
+                arr[j]-=cookies[i]
+        dfs(0)
+        return self.val
+        
