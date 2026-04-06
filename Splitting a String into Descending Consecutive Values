@@ -1,0 +1,14 @@
+class Solution:
+    def splitString(self, s: str) -> bool:
+        def dfs(start:int,prev:int)->bool:
+            if start>=len(s):
+                return True
+            end=len(s)-1 if prev<0 else len(s)
+            curr=0
+            for i in range(start,end):
+                curr=curr*10+int(s[i])
+                if prev<0 or prev-curr==1:
+                    if dfs(i+1,curr):
+                        return True
+            return False
+        return dfs(0,-1)
