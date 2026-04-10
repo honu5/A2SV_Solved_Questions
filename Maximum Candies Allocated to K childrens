@@ -1,0 +1,13 @@
+class Solution:
+    def maximumCandies(self, c: List[int], k: int) -> int:
+        def impos(n):
+            return sum(val//n for val in c)<k
+        l,r=1,max(c)+1
+        fir=1
+        while l<=r:
+            mid=(l+r)//2
+            if impos(mid):
+                r=mid-1
+                fir=mid
+            else: l=mid+1
+        return fir-1
