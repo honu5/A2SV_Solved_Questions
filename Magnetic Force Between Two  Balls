@@ -1,0 +1,27 @@
+class Solution:
+    def maxDistance(self, p: List[int], m: int) -> int:
+        p.sort()
+        
+
+        def isPos(d:int)->bool:
+            count=1
+            idx=p[0]
+            for i in range(1,len(p)):
+                if p[i]-idx>=d:
+                    count+=1
+                    idx=p[i]
+                    if count==m:
+                        return True
+            return False
+        l,r=1,p[-1]-p[0]
+        ans=0
+        while l<=r:
+            mid=(l+r)//2
+            if  isPos(mid):
+                ans=mid
+                l=mid+1
+            else: r=mid-1
+        return ans
+
+
+        
