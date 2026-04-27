@@ -1,0 +1,15 @@
+class Solution:
+    def minimumSwap(self, s1: str, s2: str) -> int:
+        X=0
+        Y=0
+        for i in range(len(s1)):
+            if s1[i]==s2[i]:
+                continue
+            elif s1[i]=="x":
+                X+=1
+            else: Y+=1
+        if X%2!=Y%2:
+            return -1
+        swaps= (X//2) + (Y//2)
+        return swaps if X%2==0 else swaps+2
+        
