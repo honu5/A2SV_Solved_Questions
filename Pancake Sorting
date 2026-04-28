@@ -1,0 +1,14 @@
+class Solution:
+    def pancakeSort(self, arr: List[int]) -> List[int]:
+        n=len(arr)
+        ans=[]
+        for i in range(n,0,-1):
+            idx=arr.index(i)
+            if i==idx+1:
+                continue
+            arr[:idx+1]=arr[:idx+1][::-1]
+            ans.append(idx+1)
+            arr[:i]=arr[:i][::-1]
+            ans.append(i)
+        return ans
+        
